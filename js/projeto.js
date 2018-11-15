@@ -6,7 +6,7 @@ var cameras, camera, camera1, camera2, camera3, camera4, camera5, camera6, camer
 
 var geometry, material, mesh;
 
-var table; // diferentes objetos a desenhar
+var table, ball; // diferentes objetos a desenhar
 
 function onResize() {
     'use strict';
@@ -25,12 +25,14 @@ function createScene() {
     scene.add(new THREE.AxisHelper(20));
 
     table = new Table(0, 37, 0);
+    ball  = new Ball(0,0,0,10,0xffffff);
     cameras = new Cameras();
 
     camera = camera1
     
     scene.add(camera);
     scene.add(table);
+    scene.add(ball);
 }
 
 function onKeyDown(e) {
