@@ -16,7 +16,7 @@ class Cameras extends THREE.Object3D{
         camera1.position.z = 40;
     }
     
-    
+
     createCamera2() {
         'use strict';
         camera2 = new THREE.OrthographicCamera(
@@ -28,11 +28,12 @@ class Cameras extends THREE.Object3D{
             1000
         );
         
-        camera2.position.x = 60;
+        camera2.position.x = 0;
         camera2.position.y = 20;
-        camera2.position.z = 40;
-    }    
-    
+        camera2.position.z = 0;
+    }
+
+
     createCamera3() {
         'use strict';
         camera3 = new THREE.OrthographicCamera(
@@ -44,11 +45,12 @@ class Cameras extends THREE.Object3D{
             1000
         );
         
-        camera3.position.x = 0;
+        camera3.position.x = 60;
         camera3.position.y = 20;
-        camera3.position.z = 0;
-    }
+        camera3.position.z = 40;
+    }    
 
+    
     constructor(){
         super();
     
