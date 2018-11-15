@@ -1,8 +1,8 @@
 /*Primeira entrega, Cena Simples Interativa com Câmara Fixa*/
 
-var camera, scene, renderer, clock; // variaveis gerais relativas a animacao
+var scene, renderer; // variaveis gerais relativas a animacao
 
-var camera1, camera2, camera3, camera4, camera5; // diferentes tipos de cameras
+var cameras, camera, camera1, camera2, camera3, camera4, camera5, camera6, camera7, camera8;  // diferentes tipos de cameras
 
 var geometry, material, mesh;
 
@@ -25,28 +25,12 @@ function createScene() {
     scene.add(new THREE.AxisHelper(20));
 
     table = new Table(0, 37, 0);
-    
-    createCamera1();
-    camera = camera1;
+    cameras = new Cameras();
 
+    camera = camera1
+    
     scene.add(camera);
     scene.add(table);
-}
-
-function createCamera1() {
-    'use strict';
-    camera1 = new THREE.OrthographicCamera(
-        window.innerWidth / - 10,
-        window.innerWidth/ 10,
-        (window.innerHeight / 10) - 10,
-        (window.innerHeight / - 10) - 10,
-        -1000,
-        1000
-    );
-    
-    camera1.position.x = 0;
-    camera1.position.y = 30;
-    camera1.position.z = 0;
 }
 
 function onKeyDown(e) {
@@ -62,6 +46,27 @@ function onKeyDown(e) {
         break;
     case 49: //1
         camera = camera1; 
+        break;
+    case 50: //1
+        camera = camera2; 
+        break;
+    case 51: //1
+        camera = camera3; 
+        break;
+    case 52: //1
+        camera = camera4; 
+        break;
+    case 53: //1
+        camera = camera5; 
+        break;
+    case 54: //1
+        camera = camera6; 
+        break;
+    case 55: //1
+        camera = camera7; 
+        break;
+    case 56: //1
+        camera = camera8; 
         break;
     }
 }
