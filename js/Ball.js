@@ -8,9 +8,8 @@ class Ball extends THREE.Object3D{
         this.position.y = diameter/2;
         this.position.z = z;
     
-        material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("textures/ball_one.jpg"), side: THREE.FrontSide });
         geometry = new THREE.SphereGeometry(diameter/2, 30, 30);
-        mesh = new THREE.Mesh(geometry, material);
+        mesh = new THREE.Mesh(geometry, ballPhongMaterial);
 
         this.add(mesh);
         // this.add(new THREE.AxisHelper(8));

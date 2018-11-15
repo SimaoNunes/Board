@@ -1,15 +1,5 @@
 /*Cena Interativa com Luz Pontual, Mensagens e Texturas*/
 
-var scene, renderer; // variaveis gerais relativas a animacao
-
-var cameras, camera, camera1, camera2, camera3, camera4, camera5, camera6, camera7, camera8;  // diferentes tipos de cameras
-
-var geometry, material, mesh;
-
-var crate, crateNormalMap, createBumpMap;
-
-var board, ball, cube; // diferentes objetos a desenhar
-
 function createScene() {
     'use strict';
 
@@ -17,13 +7,13 @@ function createScene() {
 
     scene.add(new THREE.AxisHelper(40));
 
-    board = new Board(0,0,0);
-    ball  = new Ball(0,0,10,0xffffff);
-    cube  = new Cube(-20,-20,15);
+    board   = new Board(0,0,0);
+    ball    = new Ball(-20,-20,10,0xffffff);
+    cube    = new Cube(0,0,10);
     cameras = new Cameras();
+    lights   = new Lights(); 
+    camera  = camera1
 
-    camera = camera1
-    
     scene.add(camera);
     scene.add(board);
     scene.add(ball);
@@ -33,8 +23,7 @@ function createScene() {
 function onKeyDown(e) {
     'use strict';
     switch (e.keyCode) {
-    case 65: //A
-    case 97: //a
+    case 87: //W
         scene.traverse(function (node) {
             if (node instanceof THREE.Mesh) {
                 node.material.wireframe = !node.material.wireframe;
@@ -50,20 +39,32 @@ function onKeyDown(e) {
     case 51: // 3
         camera = camera3; 
         break;
-    case 52: // 4
-        camera = camera4; 
+    case 68: //D
+        if( directionalLight.intensity == 1){
+            directionalLight.intensity = 0;
+        }else{
+            directionalLight.intensity = 1;
+        }
         break;
-    case 53: // 5
-        camera = camera5; 
+    case 80: //P
+        if( pointLight.intensity == 1){
+            pointLight.intensity = 0;
+        }else{
+            pointLight.intensity = 1;
+        }
         break;
-    case 54: // 6
-        camera = camera6; 
-        break;
-    case 55: // 7
-        camera = camera7; 
-        break;
-    case 56: // 8
-        camera = camera8; 
+    case 76: //L
+        if(lightCalculation === 1){
+            lightCalculation = 0;
+            ball.children[0].material  = ballBasicMaterial;
+            cube.children[0].material  = cubeBasicMaterial;
+            board.children[0].material = boardBasicMaterial;
+        }else{
+            lightCalculation = 1;
+            ball.children[0].material  = ballPhongMaterial;
+            cube.children[0].material  = cubePhongMaterial;
+            board.children[0].material = boardPhongMaterial;
+        }
         break;
     }
 }
