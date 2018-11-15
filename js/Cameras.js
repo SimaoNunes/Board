@@ -5,8 +5,8 @@ class Cameras extends THREE.Object3D{
         camera1 = new THREE.OrthographicCamera(
             window.innerWidth / - 10,
             window.innerWidth/ 10,
-            (window.innerHeight / 10) + 30,
-            (window.innerHeight / - 10) + 30,
+            (window.innerHeight / 10),
+            (window.innerHeight / - 10),
             -1000,
             1000
         );
@@ -22,8 +22,8 @@ class Cameras extends THREE.Object3D{
         camera2 = new THREE.OrthographicCamera(
             window.innerWidth / - 10,
             window.innerWidth/ 10,
-            (window.innerHeight / 10) + 30,
-            (window.innerHeight / - 10) + 30,
+            (window.innerHeight / 10),
+            (window.innerHeight / - 10),
             -1000,
             1000
         );
@@ -39,8 +39,8 @@ class Cameras extends THREE.Object3D{
         camera3 = new THREE.OrthographicCamera(
             window.innerWidth / - 10,
             window.innerWidth/ 10,
-            (window.innerHeight / 10) + 40,
-            (window.innerHeight / - 10) + 40,
+            (window.innerHeight / 10),
+            (window.innerHeight / - 10),
             -1000,
             1000
         );
@@ -56,8 +56,8 @@ class Cameras extends THREE.Object3D{
         camera4 = new THREE.OrthographicCamera(
             window.innerWidth / - 10,
             window.innerWidth/ 10,
-            (window.innerHeight / 10) + 20,
-            (window.innerHeight / - 10) + 20,
+            (window.innerHeight / 10),
+            (window.innerHeight / - 10),
             -1000,
             1000
         );
@@ -106,8 +106,8 @@ class Cameras extends THREE.Object3D{
         camera7 = new THREE.OrthographicCamera(
             window.innerWidth / - 10,
             window.innerWidth/ 10,
-            (window.innerHeight / 10) + 40,
-            (window.innerHeight / - 10) + 40,
+            (window.innerHeight / 10),
+            (window.innerHeight / - 10),
             -1000,
             1000
         );

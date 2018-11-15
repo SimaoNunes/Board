@@ -1,4 +1,4 @@
-/*Primeira entrega, Cena Simples Interativa com Câmara Fixa*/
+/*Cena Interativa com Luz Pontual, Mensagens e Texturas*/
 
 var scene, renderer; // variaveis gerais relativas a animacao
 
@@ -6,33 +6,28 @@ var cameras, camera, camera1, camera2, camera3, camera4, camera5, camera6, camer
 
 var geometry, material, mesh;
 
-var table, ball; // diferentes objetos a desenhar
+var crate, crateNormalMap, createBumpMap;
 
-function onResize() {
-    'use strict';
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    if (window.innerHeight > 0 && window.innerWidth > 0) {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-    }
-}
+var board, ball, cube; // diferentes objetos a desenhar
 
 function createScene() {
     'use strict';
 
     scene = new THREE.Scene();
 
-    scene.add(new THREE.AxisHelper(20));
+    scene.add(new THREE.AxisHelper(40));
 
-    table = new Table(0, 37, 0);
-    ball  = new Ball(0,0,0,10,0xffffff);
+    board = new Board(0,0,0);
+    ball  = new Ball(0,0,10,0xffffff);
+    cube  = new Cube(-20,-20,15);
     cameras = new Cameras();
 
     camera = camera1
     
     scene.add(camera);
-    scene.add(table);
+    scene.add(board);
     scene.add(ball);
+    scene.add(cube);
 }
 
 function onKeyDown(e) {
@@ -46,28 +41,28 @@ function onKeyDown(e) {
             }
         });
         break;
-    case 49: //1
+    case 49: // 1
         camera = camera1; 
         break;
-    case 50: //1
+    case 50: // 2
         camera = camera2; 
         break;
-    case 51: //1
+    case 51: // 3
         camera = camera3; 
         break;
-    case 52: //1
+    case 52: // 4
         camera = camera4; 
         break;
-    case 53: //1
+    case 53: // 5
         camera = camera5; 
         break;
-    case 54: //1
+    case 54: // 6
         camera = camera6; 
         break;
-    case 55: //1
+    case 55: // 7
         camera = camera7; 
         break;
-    case 56: //1
+    case 56: // 8
         camera = camera8; 
         break;
     }
@@ -76,6 +71,15 @@ function onKeyDown(e) {
 function render() {
     'use strict';
     renderer.render(scene, camera);
+}
+
+function onResize() {
+    'use strict';
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    if (window.innerHeight > 0 && window.innerWidth > 0) {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+    }
 }
 
 function init() {
