@@ -3,7 +3,7 @@ class Board extends THREE.Object3D{
     addBoard(x, y, z) {
         'use strict';
         geometry = new THREE.BoxGeometry(80,8,80, 30, 3, 30);
-        mesh = new THREE.Mesh(geometry, boardPhongMaterial);
+        mesh = new THREE.Mesh(geometry, this.userData.phongMaterial);
         mesh.position.set(x, y, z);
         this.add(mesh);
     }
@@ -17,8 +17,37 @@ class Board extends THREE.Object3D{
         this.add(mesh);
     }
 
+    changeToBasic(){
+        this.children[0].material  = this.userData.basicMaterial;
+    }
+    changeToPhong(){
+        this.children[0].material  = this.userData.phongMaterial;       
+    }
+
     constructor(x, y, z){
         super();
+
+        var basic = new THREE.MeshFaceMaterial([
+            new THREE.MeshBasicMaterial({color: 0x5b5a58}),
+            new THREE.MeshBasicMaterial({color: 0x5b5a58}),
+            new THREE.MeshBasicMaterial({map: boardTexture, side: THREE.FrontSide}),
+            new THREE.MeshBasicMaterial({color: 0x5b5a58}),
+            new THREE.MeshBasicMaterial({color: 0x5b5a58}),
+            new THREE.MeshBasicMaterial({color: 0x5b5a58})
+        ]);
+        var phong = new THREE.MeshFaceMaterial([
+            new THREE.MeshPhongMaterial({color: 0x5b5a58}),
+            new THREE.MeshPhongMaterial({color: 0x5b5a58}),
+            new THREE.MeshPhongMaterial({map: boardTexture, side: THREE.FrontSide}),
+            new THREE.MeshPhongMaterial({color: 0x5b5a58}),
+            new THREE.MeshPhongMaterial({color: 0x5b5a58}),
+            new THREE.MeshPhongMaterial({color: 0x5b5a58})
+        ]);
+
+        this.userData = {
+            basicMaterial: basic,
+            phongMaterial: phong  
+        }
 
         this.position.x = x;
         this.position.y = y-4;

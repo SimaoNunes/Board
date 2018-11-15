@@ -1,5 +1,6 @@
 /*Cena Interativa com Luz Pontual, Mensagens e Texturas*/
 
+
 function createScene() {
     'use strict';
 
@@ -20,10 +21,11 @@ function createScene() {
     scene.add(cube);
 }
 
+
 function onKeyDown(e) {
     'use strict';
     switch (e.keyCode) {
-    case 87: //W
+    case 87: // W
         scene.traverse(function (node) {
             if (node instanceof THREE.Mesh) {
                 node.material.wireframe = !node.material.wireframe;
@@ -39,40 +41,55 @@ function onKeyDown(e) {
     case 51: // 3
         camera = camera3; 
         break;
-    case 68: //D
+    case 68: // D
         if( directionalLight.intensity == 1){
             directionalLight.intensity = 0;
         }else{
             directionalLight.intensity = 1;
         }
         break;
-    case 80: //P
+    case 80: // P
         if( pointLight.intensity == 1){
             pointLight.intensity = 0;
         }else{
             pointLight.intensity = 1;
         }
         break;
-    case 76: //L
-        if(lightCalculation === 1){
-            lightCalculation = 0;
-            ball.children[0].material  = ballBasicMaterial;
-            cube.children[0].material  = cubeBasicMaterial;
-            board.children[0].material = boardBasicMaterial;
-        }else{
-            lightCalculation = 1;
-            ball.children[0].material  = ballPhongMaterial;
-            cube.children[0].material  = cubePhongMaterial;
-            board.children[0].material = boardPhongMaterial;
-        }
+    case 76: // L
+        lKey = 1;
         break;
     }
 }
+
+
+function update() {
+
+    if(lKey == 1){
+        if(lightCalculation === 1){
+            lightCalculation = 0;
+            ball.changeToBasic();
+            cube.changeToBasic();
+            board.changeToBasic();
+        }else{
+            lightCalculation = 1;
+            ball.changeToPhong();
+            cube.changeToPhong();
+            board.changeToPhong();
+        }
+        lKey = 0;
+    }
+
+    camera.lookAt(scene.position);
+
+}
+
+
 
 function render() {
     'use strict';
     renderer.render(scene, camera);
 }
+
 
 function onResize() {
     'use strict';
@@ -82,6 +99,7 @@ function onResize() {
         camera.updateProjectionMatrix();
     }
 }
+
 
 function init() {
     'use strict';
@@ -100,12 +118,13 @@ function init() {
     window.addEventListener("keydown", onKeyDown);
 }
 
+
 function animate() {
     'use strict';
 
-    render();
+    update();
 
-    camera.lookAt( scene.position );
+    render();
 
     requestAnimationFrame(animate);
 }
