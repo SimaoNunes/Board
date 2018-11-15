@@ -11,23 +11,15 @@ class Board extends THREE.Object3D{
     addFrame(x, y, z) {
         'use strict';
         var geometryTop = new THREE.BoxGeometry(80, 8, 5, 8, 3, 10);
-        // materialTop = new THREE.MeshBasicMaterial({color: 0x5b5a58});
-        // meshTop = new THREE.Mesh(geometryTop, materialTop);
         var meshTop = new THREE.Mesh(geometryTop);
         meshTop.position.set(x, y, z-42.5);
         var geometryBottom = new THREE.BoxGeometry(5, 8, 90, 8, 3, 10);
-        // materialBottom = new THREE.MeshBasicMaterial({color: 0x5b5a58});
-        // meshBottom = new THREE.Mesh(geometryBottom, materialBottom);
         var meshBottom = new THREE.Mesh(geometryTop);
         meshBottom.position.set(x, y, z+42.5);
         var geometryLeft = new THREE.BoxGeometry(5, 8, 90, 8, 3, 10);
-        // materialLeft = new THREE.MeshBasicMaterial({color: 0x5b5a58});
-        // meshLeft = new THREE.Mesh(geometryLeft, materialLeft);
         var meshLeft = new THREE.Mesh(geometryLeft);
         meshLeft.position.set(x-42.5, y, z);
         var geometryRight = new THREE.BoxGeometry(5, 8, 90, 8, 3, 10);
-        // materialRight = new THREE.MeshBasicMaterial({color: 0x5b5a58});
-        // meshRight = new THREE.Mesh(geometryRight, materialRight);
         var meshRight = new THREE.Mesh(geometryRight);
         meshRight.position.set(x+42.5, y, z);
         geometry = new THREE.Geometry();
@@ -50,7 +42,7 @@ class Board extends THREE.Object3D{
     }
     changeToPhong(){
         this.children[0].material  = this.userData.phongMaterialBoard;    
-        this.children[1].material  = this.userData.basicMaterialFrame;
+        this.children[1].material  = this.userData.phongMaterialFrame;
     }
 
     constructor(x, y, z){
