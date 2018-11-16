@@ -48,10 +48,11 @@ class Board extends THREE.Object3D{
     constructor(x, y, z){
         super();
 
+        var chessBoard = new texture.load("textures/casas.png");
         var basicBoard = new THREE.MeshFaceMaterial([
             new THREE.MeshBasicMaterial({color: 0x5b5a58}),
             new THREE.MeshBasicMaterial({color: 0x5b5a58}),
-            new THREE.MeshBasicMaterial({map: boardTexture, side: THREE.FrontSide}),
+            new THREE.MeshBasicMaterial({map: chessBoard, side: THREE.FrontSide}),
             new THREE.MeshBasicMaterial({color: 0x5b5a58}),
             new THREE.MeshBasicMaterial({color: 0x5b5a58}),
             new THREE.MeshBasicMaterial({color: 0x5b5a58})
@@ -59,7 +60,7 @@ class Board extends THREE.Object3D{
         var phongBoard = new THREE.MeshFaceMaterial([
             new THREE.MeshPhongMaterial({color: 0x5b5a58}),
             new THREE.MeshPhongMaterial({color: 0x5b5a58}),
-            new THREE.MeshPhongMaterial({map: boardTexture, side: THREE.FrontSide}),
+            new THREE.MeshPhongMaterial({map: chessBoard, side: THREE.FrontSide}),
             new THREE.MeshPhongMaterial({color: 0x5b5a58}),
             new THREE.MeshPhongMaterial({color: 0x5b5a58}),
             new THREE.MeshPhongMaterial({color: 0x5b5a58})

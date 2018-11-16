@@ -6,11 +6,9 @@ function createScene() {
 
     scene = new THREE.Scene();
 
-    scene.add(new THREE.AxisHelper(40));
-
     board   = new Board(0,0,0);
-    ball    = new Ball(-20,-20,10,0xffffff);
-    cube    = new Cube(0,0,10);
+    ball    = new Ball(-20,-20,13,0xffffff);
+    cube    = new Cube(0,0,15);
     cameras = new Cameras();
     lights   = new Lights(); 
     camera  = camera1
@@ -41,21 +39,13 @@ function onKeyDown(e) {
     case 51: // 3
         camera = camera3; 
         break;
-    case 68: // D
-        if( directionalLight.intensity == 1){
-            directionalLight.intensity = 0;
-        }else{
-            directionalLight.intensity = 1;
-        }
+    case 68: // D (change directionalLight intensity)
+        dKey = 1;
         break;
-    case 80: // P
-        if( pointLight.intensity == 1){
-            pointLight.intensity = 0;
-        }else{
-            pointLight.intensity = 1;
-        }
+    case 80: // P (change pointLight intensity)
+        pKey = 1;
         break;
-    case 76: // L
+    case 76: // L (toogle lightCalculation)
         lKey = 1;
         break;
     }
@@ -64,8 +54,26 @@ function onKeyDown(e) {
 
 function update() {
 
+    if(dKey == 1){
+        if( directionalLight.intensity == 1){
+            directionalLight.intensity = 0;
+        }else{
+            directionalLight.intensity = 1;
+        }
+        dKey = 0;
+    }
+
+    if(pKey == 1){
+        if(pointLight.intensity == 1){
+            pointLight.intensity = 0;
+        }else{
+            pointLight.intensity = 1;
+        }
+        pKey = 0;
+    }
+
     if(lKey == 1){
-        if(lightCalculation === 1){
+        if(lightCalculation == 1){
             lightCalculation = 0;
             ball.changeToBasic();
             cube.changeToBasic();

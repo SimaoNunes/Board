@@ -17,10 +17,6 @@ var lightCalculation = 1;
 //  TEXTURES VARIABLES
 // --------------------
 var texture      = new THREE.TextureLoader();
-var cubeTexture  = new texture.load("textures/magic_cube.png");
-var cubeBumpMap  = new texture.load("textures/magic_cube.png");
-var ballTexture  = new texture.load("textures/ball_one.jpg");
-var boardTexture = new texture.load("textures/casas.png");
 
 
 
