@@ -10,7 +10,7 @@ class Lights extends THREE.Object3D{
     }
 
     addPointLight(){
-        pointLight = new THREE.PointLight(0xffffff, 0); // soft white light
+        pointLight = new THREE.PointLight(0xffffff, 0, 100, 2); // soft white light
         pointLight.castShadow = true;
         pointLight.position.x = 0;
         pointLight.position.y = 50;

@@ -11,9 +11,10 @@ class Ball extends THREE.Object3D{
         'use strict'
         super();
 
+        var specularColor = new THREE.Color(2,2,2);
         var yellow1 = new texture.load("textures/ball_one.jpg");
         var basic = new THREE.MeshBasicMaterial({map: yellow1, side: THREE.FrontSide});
-        var phong = new THREE.MeshPhongMaterial({map: yellow1, side: THREE.FrontSide});
+        var phong = new THREE.MeshPhongMaterial({map: yellow1, side: THREE.FrontSide, specular: specularColor, shininess: 200});
 
         this.userData = {
             basicMaterial: basic,

@@ -2,9 +2,10 @@ class Board extends THREE.Object3D{
 
     addBoard(x, y, z) {
         'use strict';
-        geometry = new THREE.BoxGeometry(80,8,80, 30, 3, 30);
-        mesh = new THREE.Mesh(geometry, this.userData.phongMaterial);
-        mesh.position.set(x, y, z);
+        geometry = new THREE.PlaneGeometry(80,80, 40, 40);
+        mesh = new THREE.Mesh(geometry, this.userData.phongMaterialBoard);
+        mesh.position.set(x, y+4, z);
+        mesh.rotation.x -= Math.PI/2;
         this.add(mesh);
     }
 
@@ -13,8 +14,8 @@ class Board extends THREE.Object3D{
         var geometryTop = new THREE.BoxGeometry(80, 8, 5, 8, 3, 10);
         var meshTop = new THREE.Mesh(geometryTop);
         meshTop.position.set(x, y, z-42.5);
-        var geometryBottom = new THREE.BoxGeometry(5, 8, 90, 8, 3, 10);
-        var meshBottom = new THREE.Mesh(geometryTop);
+        var geometryBottom = new THREE.BoxGeometry(80, 8, 5, 8, 3, 10);
+        var meshBottom = new THREE.Mesh(geometryBottom);
         meshBottom.position.set(x, y, z+42.5);
         var geometryLeft = new THREE.BoxGeometry(5, 8, 90, 8, 3, 10);
         var meshLeft = new THREE.Mesh(geometryLeft);
@@ -31,7 +32,7 @@ class Board extends THREE.Object3D{
         geometry.merge(meshLeft.geometry, meshLeft.matrix);
         meshRight.updateMatrix();
         geometry.merge(meshRight.geometry, meshRight.matrix);
-        mesh = new THREE.Mesh(geometry, material);
+        mesh = new THREE.Mesh(geometry, this.userData.phongMaterialFrame);
         this.add(mesh);
     }
 
@@ -48,25 +49,10 @@ class Board extends THREE.Object3D{
     constructor(x, y, z){
         super();
 
-        var chessBoard = new texture.load("textures/casas.png");
-        var basicBoard = new THREE.MeshFaceMaterial([
-            new THREE.MeshBasicMaterial({color: 0x5b5a58}),
-            new THREE.MeshBasicMaterial({color: 0x5b5a58}),
-            new THREE.MeshBasicMaterial({map: chessBoard, side: THREE.FrontSide}),
-            new THREE.MeshBasicMaterial({color: 0x5b5a58}),
-            new THREE.MeshBasicMaterial({color: 0x5b5a58}),
-            new THREE.MeshBasicMaterial({color: 0x5b5a58})
-        ]);
-        var phongBoard = new THREE.MeshFaceMaterial([
-            new THREE.MeshPhongMaterial({color: 0x5b5a58}),
-            new THREE.MeshPhongMaterial({color: 0x5b5a58}),
-            new THREE.MeshPhongMaterial({map: chessBoard, side: THREE.FrontSide}),
-            new THREE.MeshPhongMaterial({color: 0x5b5a58}),
-            new THREE.MeshPhongMaterial({color: 0x5b5a58}),
-            new THREE.MeshPhongMaterial({color: 0x5b5a58})
-        ]);
-        var basicFrame = new THREE.MeshBasicMaterial({color: 0x5b5a58});
-        var phongFrame = new THREE.MeshPhongMaterial({color: 0x5b5a58});
+        var basicBoard = new THREE.MeshBasicMaterial({map: new texture.load("textures/casas.png")});
+        var phongBoard = new THREE.MeshPhongMaterial({map: new texture.load("textures/casas.png")});
+        var basicFrame = new THREE.MeshBasicMaterial({color: 0x2d2c29});
+        var phongFrame = new THREE.MeshPhongMaterial({color: 0x2d2c29});
 
         this.userData = {
             basicMaterialBoard: basicBoard,

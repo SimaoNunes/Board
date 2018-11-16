@@ -64,10 +64,10 @@ function update() {
     }
 
     if(pKey == 1){
-        if(pointLight.intensity == 1){
+        if(pointLight.intensity == 4){
             pointLight.intensity = 0;
         }else{
-            pointLight.intensity = 1;
+            pointLight.intensity = 4;
         }
         pKey = 0;
     }
