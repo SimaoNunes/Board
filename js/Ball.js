@@ -13,8 +13,7 @@ class Ball extends THREE.Object3D{
         }
         if(vccTest <= 0)
             this.userData.acc = 0;
-        this.userData.matrix.makeRotationY(this.userData.vcc);
-        this.position.applyMatrix4(this.userData.matrix);
+        this.position.applyAxisAngle(axisY,this.userData.vcc);
     }
 
     constructor(x,z,diameter, acceleration){
@@ -30,9 +29,8 @@ class Ball extends THREE.Object3D{
             phongMaterial: phong,
             moving: false,
             vcc: 0,
-            vccMax: 0.2,
-            acc: acceleration,
-            matrix: new THREE.Matrix4()
+            vccMax: 0.1,
+            acc: acceleration
         }
 
         this.position.x = x;
