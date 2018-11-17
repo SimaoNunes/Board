@@ -7,7 +7,7 @@ function createScene() {
     scene = new THREE.Scene();
 
     board   = new Board(0,0,0);
-    ball    = new Ball(-20,-20,13,0xffffff);
+    ball    = new Ball(-25,0,14,0xffffff,ballAcc);
     cube    = new Cube(0,0,15);
     cameras = new Cameras();
     lights   = new Lights(); 
@@ -40,13 +40,22 @@ function onKeyDown(e) {
         camera = camera3; 
         break;
     case 68: // D (change directionalLight intensity)
-        dKey = 1;
+        dKey = true;
         break;
     case 80: // P (change pointLight intensity)
-        pKey = 1;
+        pKey = true;
         break;
     case 76: // L (toogle lightCalculation)
-        lKey = 1;
+        lKey = true;
+        break;
+    case 66: // B (toogle ball movement)
+        if(ball.userData.acc == 0)
+            ball.userData.acc = ballAcc;
+        else
+            ball.userData.acc = -1 * Math.sign(ball.userData.acc) * Math.abs(ball.userData.acc);
+        break;
+    case 83: // S (pause)
+        sKey = !sKey;
         break;
     }
 }
@@ -54,25 +63,27 @@ function onKeyDown(e) {
 
 function update() {
 
-    if(dKey == 1){
+    delta = clock.getDelta();
+
+    if(dKey){
         if( directionalLight.intensity == 1){
             directionalLight.intensity = 0;
         }else{
             directionalLight.intensity = 1;
         }
-        dKey = 0;
+        dKey = false;
     }
 
-    if(pKey == 1){
+    if(pKey){
         if(pointLight.intensity == 4){
             pointLight.intensity = 0;
         }else{
             pointLight.intensity = 4;
         }
-        pKey = 0;
+        pKey = false;
     }
 
-    if(lKey == 1){
+    if(lKey){
         if(lightCalculation == 1){
             lightCalculation = 0;
             ball.changeToBasic();
@@ -84,7 +95,12 @@ function update() {
             cube.changeToPhong();
             board.changeToPhong();
         }
-        lKey = 0;
+        lKey = false;
+    }
+
+    if(sKey){
+        if(ball.userData.acc != 0)
+            ball.rotate(delta);
     }
 
     camera.lookAt(scene.position);
@@ -118,6 +134,8 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
     
+    clock = new THREE.Clock();
+
     createScene();
 
     render();

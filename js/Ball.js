@@ -6,19 +6,33 @@ class Ball extends THREE.Object3D{
     changeToPhong(){
         this.children[0].material  = this.userData.phongMaterial;       
     }
+    rotate(delta){
+        var vccTest = this.userData.vcc + this.userData.acc * delta;
+        if(vccTest <= this.userData.vccMax){
+            this.userData.vcc = vccTest;
+        }
+        if(vccTest <= 0)
+            this.userData.acc = 0;
+        this.userData.matrix.makeRotationY(this.userData.vcc);
+        this.position.applyMatrix4(this.userData.matrix);
+    }
 
-    constructor(x,z,diameter){
+    constructor(x,z,diameter, acceleration){
         'use strict'
         super();
 
-        var specularColor = new THREE.Color(2,2,2);
         var yellow1 = new texture.load("textures/ball_one.jpg");
         var basic = new THREE.MeshBasicMaterial({map: yellow1, side: THREE.FrontSide});
-        var phong = new THREE.MeshPhongMaterial({map: yellow1, side: THREE.FrontSide, specular: specularColor, shininess: 200});
+        var phong = new THREE.MeshPhongMaterial({map: yellow1, side: THREE.FrontSide, specular: 0xffffff, shininess: 300});
 
         this.userData = {
             basicMaterial: basic,
-            phongMaterial: phong  
+            phongMaterial: phong,
+            moving: false,
+            vcc: 0,
+            vccMax: 0.2,
+            acc: acceleration,
+            matrix: new THREE.Matrix4()
         }
 
         this.position.x = x;

@@ -26,12 +26,12 @@ class Cube extends THREE.Object3D{
             new THREE.MeshBasicMaterial({map: orange, side: THREE.FrontSide})
         ]);
         var phong = new THREE.MeshFaceMaterial([
-            new THREE.MeshPhongMaterial({map: yellow, bumpMap: yellow, side: THREE.FrontSide}),
-            new THREE.MeshPhongMaterial({map: green, bumpMap: green, side: THREE.FrontSide}),
-            new THREE.MeshPhongMaterial({map: blue, bumpMap: blue, side: THREE.FrontSide}),
+            new THREE.MeshPhongMaterial({map: yellow, bumpMap: white, side: THREE.FrontSide}),
+            new THREE.MeshPhongMaterial({map: green, bumpMap: white, side: THREE.FrontSide}),
+            new THREE.MeshPhongMaterial({map: blue, bumpMap: white, side: THREE.FrontSide}),
             new THREE.MeshPhongMaterial({map: white, bumpMap: white, side: THREE.FrontSide}),
-            new THREE.MeshPhongMaterial({map: red, bumpMap: red, side: THREE.FrontSide}),
-            new THREE.MeshPhongMaterial({map: orange, bumpMap: orange, side: THREE.FrontSide})
+            new THREE.MeshPhongMaterial({map: red, bumpMap: white, side: THREE.FrontSide}),
+            new THREE.MeshPhongMaterial({map: orange, bumpMap: white, side: THREE.FrontSide})
         ]);
 
         this.userData = {
