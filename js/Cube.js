@@ -20,17 +20,17 @@ class Cube extends THREE.Object3D{
         var bump = new texture.load("textures/bump.png");
         var basic = new THREE.MeshFaceMaterial([
             new THREE.MeshBasicMaterial({map: yellow, side: THREE.FrontSide}),
-            new THREE.MeshBasicMaterial({map: green, side: THREE.FrontSide}),
-            new THREE.MeshBasicMaterial({map: blue, side: THREE.FrontSide}),
             new THREE.MeshBasicMaterial({map: white, side: THREE.FrontSide}),
+            new THREE.MeshBasicMaterial({map: blue, side: THREE.FrontSide}),
+            new THREE.MeshBasicMaterial({map: green, side: THREE.FrontSide}),
             new THREE.MeshBasicMaterial({map: red, side: THREE.FrontSide}),
             new THREE.MeshBasicMaterial({map: orange, side: THREE.FrontSide})
         ]);
         var phong = new THREE.MeshFaceMaterial([
             new THREE.MeshPhongMaterial({map: yellow, bumpMap: bump, side: THREE.FrontSide}),
-            new THREE.MeshPhongMaterial({map: green, bumpMap: bump, side: THREE.FrontSide}),
-            new THREE.MeshPhongMaterial({map: blue, bumpMap: bump, side: THREE.FrontSide}),
             new THREE.MeshPhongMaterial({map: white, bumpMap: bump, side: THREE.FrontSide}),
+            new THREE.MeshPhongMaterial({map: blue, bumpMap: bump, side: THREE.FrontSide}),
+            new THREE.MeshPhongMaterial({map: green, bumpMap: bump, side: THREE.FrontSide}),
             new THREE.MeshPhongMaterial({map: red, bumpMap: bump, side: THREE.FrontSide}),
             new THREE.MeshPhongMaterial({map: orange, bumpMap: bump, side: THREE.FrontSide})
         ]);

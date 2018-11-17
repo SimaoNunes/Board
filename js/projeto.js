@@ -25,24 +25,16 @@ function onKeyDown(e) {
     switch (e.keyCode) {
     case 87: // W
         if(sKey){
-        scene.traverse(function (node) {
-            if (node instanceof THREE.Mesh) {
-                node.material.wireframe = !node.material.wireframe;
+            scene.traverse(function (node) {
+                if (node instanceof THREE.Mesh) {
+                    node.material.wireframe = !node.material.wireframe;
+                }
+            });
+            for(counter = 0; counter < 6; counter++){
+                cube.children[0].material[counter].wireframe = !cube.children[0].material[counter].wireframe;
             }
-        });
         }
         break;
-    case 49: // 1
-        if(sKey){
-            camera = camera1; 
-        }
-        break;
-    // case 50: // 2
-    //     camera = camera2; 
-    //     break;
-    // case 51: // 3
-    //     camera = camera3; 
-    //     break;
     case 68: // D (change directionalLight intensity)
         if(sKey){
             dKey = true;

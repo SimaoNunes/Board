@@ -8,6 +8,7 @@ var board, ball, cube; // diferentes objetos a desenhar
 var lights, currentLight, directionalLight, pointLight;  // diferentes tipos de luz
 var ballAcc = 0.07; // aceleracao da bola
 var axisY = new THREE.Vector3(0,1,0);
+var counter;
 var lKey = false;   // variaveis que serao ativadas quando pressionadas as teclas respetivas
 var wKey = 0;
 var dKey = false;
