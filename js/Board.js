@@ -2,7 +2,7 @@ class Board extends THREE.Object3D{
 
     addBoard(x, y, z) {
         'use strict';
-        geometry = new THREE.PlaneGeometry(80,80, 40, 40);
+        geometry = new THREE.PlaneGeometry(80,80,80,80);
         mesh = new THREE.Mesh(geometry, this.userData.phongMaterialBoard);
         mesh.position.set(x, y+4, z);
         mesh.rotation.x -= Math.PI/2;
@@ -23,6 +23,10 @@ class Board extends THREE.Object3D{
         var geometryRight = new THREE.BoxGeometry(5, 8, 90, 8, 3, 10);
         var meshRight = new THREE.Mesh(geometryRight);
         meshRight.position.set(x+42.5, y, z);
+        var geometryPlane = new THREE.PlaneGeometry(80,80,80,80);
+        var meshPlane = new THREE.Mesh(geometryPlane);
+        meshPlane.position.set(z,y-4,z);
+        meshPlane.rotation.x += Math.PI/2;
         geometry = new THREE.Geometry();
         meshTop.updateMatrix();
         geometry.merge(meshTop.geometry, meshTop.matrix);
@@ -32,6 +36,8 @@ class Board extends THREE.Object3D{
         geometry.merge(meshLeft.geometry, meshLeft.matrix);
         meshRight.updateMatrix();
         geometry.merge(meshRight.geometry, meshRight.matrix);
+        meshPlane.updateMatrix();
+        geometry.merge(meshPlane.geometry, meshPlane.matrix);
         mesh = new THREE.Mesh(geometry, this.userData.phongMaterialFrame);
         this.add(mesh);
     }

@@ -2,7 +2,7 @@
 //  GLOBAL VARIABLES
 // ------------------
 var scene, renderer, clock, delta; // variaveis gerais relativas a animacao
-var cameras, camera, camera1, camera2, camera3, camera4, camera5, camera6;  // diferentes tipos de cameras
+var cameras, camera, camera1, controls;  // diferentes tipos de cameras
 var geometry, material, mesh;
 var board, ball, cube; // diferentes objetos a desenhar
 var lights, currentLight, directionalLight, pointLight;  // diferentes tipos de luz

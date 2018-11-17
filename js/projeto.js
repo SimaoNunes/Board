@@ -11,7 +11,7 @@ function createScene() {
     cube    = new Cube(0,0,15);
     cameras = new Cameras();
     lights   = new Lights(); 
-    camera  = camera1
+    camera  = camera1;
 
     scene.add(camera);
     scene.add(board);
@@ -24,35 +24,47 @@ function onKeyDown(e) {
     'use strict';
     switch (e.keyCode) {
     case 87: // W
+        if(sKey){
         scene.traverse(function (node) {
             if (node instanceof THREE.Mesh) {
                 node.material.wireframe = !node.material.wireframe;
             }
         });
+        }
         break;
     case 49: // 1
-        camera = camera1; 
+        if(sKey){
+            camera = camera1; 
+        }
         break;
-    case 50: // 2
-        camera = camera2; 
-        break;
-    case 51: // 3
-        camera = camera3; 
-        break;
+    // case 50: // 2
+    //     camera = camera2; 
+    //     break;
+    // case 51: // 3
+    //     camera = camera3; 
+    //     break;
     case 68: // D (change directionalLight intensity)
-        dKey = true;
+        if(sKey){
+            dKey = true;
+        }
         break;
     case 80: // P (change pointLight intensity)
-        pKey = true;
+        if(sKey){
+            pKey = true;
+        }
         break;
     case 76: // L (toogle lightCalculation)
-        lKey = true;
+        if(sKey){
+            lKey = true;
+        }
         break;
     case 66: // B (toogle ball movement)
-        if(ball.userData.acc == 0)
-            ball.userData.acc = ballAcc;
-        else
-            ball.userData.acc = -1 * Math.sign(ball.userData.acc) * Math.abs(ball.userData.acc);
+        if(sKey){
+            if(ball.userData.acc == 0)
+                ball.userData.acc = ballAcc;
+            else
+                ball.userData.acc = -1 * Math.sign(ball.userData.acc) * Math.abs(ball.userData.acc);
+        }
         break;
     case 83: // S (pause)
         sKey = !sKey;
@@ -104,6 +116,7 @@ function update() {
     }
 
     camera.lookAt(scene.position);
+    controls.update();
 
 }
 
