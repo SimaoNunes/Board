@@ -6,6 +6,7 @@ class Board extends THREE.Object3D{
         mesh = new THREE.Mesh(geometry, this.userData.phongMaterialBoard);
         mesh.position.set(x, y+4, z);
         mesh.rotation.x -= Math.PI/2;
+        mesh.receiveShadow = true;
         this.add(mesh);
     }
 
