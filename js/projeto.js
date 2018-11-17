@@ -7,7 +7,7 @@ function createScene() {
     scene = new THREE.Scene();
 
     board   = new Board(0,0,0);
-    ball    = new Ball(-25,0,14,0xffffff,ballAcc);
+    ball    = new Ball(-25,0,14,0xffffff);
     cube    = new Cube(0,0,15);
     cameras = new Cameras();
     lights   = new Lights(); 
@@ -53,7 +53,7 @@ function onKeyDown(e) {
     case 66: // B (toogle ball movement)
         if(sKey){
             if(ball.userData.acc == 0)
-                ball.userData.acc = ballAcc;
+                ball.userData.acc = 0.07;
             else
                 ball.userData.acc = -1 * Math.sign(ball.userData.acc) * Math.abs(ball.userData.acc);
         }

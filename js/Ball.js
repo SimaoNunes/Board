@@ -14,11 +14,11 @@ class Ball extends THREE.Object3D{
         if(vccTest <= 0)
             this.userData.acc = 0;
         this.position.applyAxisAngle(axisY,this.userData.vcc);
-        this.userData.direction.applyAxisAngle(axisY,this.userData.vcc);
-        this.rotateOnAxis(this.userData.direction,this.userData.vcc);
+        this.userData.rotationDirection.applyAxisAngle(axisY,this.userData.vcc);
+        this.children[0].rotateOnAxis(this.userData.rotationDirection,this.userData.vcc);
     }
 
-    constructor(x,z,diameter, acceleration){
+    constructor(x,z,diameter){
         'use strict'
         super();
 
@@ -32,8 +32,8 @@ class Ball extends THREE.Object3D{
             moving: false,
             vcc: 0,
             vccMax: 0.04,
-            acc: acceleration,
-            direction: new THREE.Vector3(1,0,1).normalize()
+            acc: 0,
+            rotationDirection: new THREE.Vector3(1,0,0)
         }
 
         this.position.x = x;
@@ -44,6 +44,5 @@ class Ball extends THREE.Object3D{
         mesh = new THREE.Mesh(geometry, this.userData.phongMaterial);
 
         this.add(mesh);
-        this.add(new THREE.AxisHelper(20));
     }
 }
