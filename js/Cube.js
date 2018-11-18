@@ -27,12 +27,12 @@ class Cube extends THREE.Object3D{
             new THREE.MeshBasicMaterial({map: orange, side: THREE.FrontSide})
         ]);
         var phong = new THREE.MeshFaceMaterial([
-            new THREE.MeshPhongMaterial({map: yellow, bumpMap: bump, side: THREE.FrontSide}),
-            new THREE.MeshPhongMaterial({map: white, bumpMap: bump, side: THREE.FrontSide}),
-            new THREE.MeshPhongMaterial({map: blue, bumpMap: bump, side: THREE.FrontSide}),
-            new THREE.MeshPhongMaterial({map: green, bumpMap: bump, side: THREE.FrontSide}),
-            new THREE.MeshPhongMaterial({map: red, bumpMap: bump, side: THREE.FrontSide}),
-            new THREE.MeshPhongMaterial({map: orange, bumpMap: bump, side: THREE.FrontSide})
+            new THREE.MeshPhongMaterial({map: yellow, bumpMap: bump, side: THREE.FrontSide, color: 0xffffff}),
+            new THREE.MeshPhongMaterial({map: white, bumpMap: bump, side: THREE.FrontSide, color: 0xffffff}),
+            new THREE.MeshPhongMaterial({map: blue, bumpMap: bump, side: THREE.FrontSide, color: 0xffffff}),
+            new THREE.MeshPhongMaterial({map: green, bumpMap: bump, side: THREE.FrontSide, color: 0xffffff}),
+            new THREE.MeshPhongMaterial({map: red, bumpMap: bump, side: THREE.FrontSide, color: 0xffffff}),
+            new THREE.MeshPhongMaterial({map: orange, bumpMap: bump, side: THREE.FrontSide, color: 0xffffff})
         ]);
 
         this.userData = {

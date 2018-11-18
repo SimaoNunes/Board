@@ -3,7 +3,7 @@ class Lights extends THREE.Object3D{
     addDirectionalLight(){
         directionalLight = new THREE.DirectionalLight(0xffffff, 1); // soft white light
         directionalLight.position.x = 50;
-        directionalLight.position.y = 40;
+        directionalLight.position.y = 100;
         directionalLight.position.z = 50;
         scene.add(directionalLight);
     }
