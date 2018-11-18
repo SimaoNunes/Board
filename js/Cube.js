@@ -44,7 +44,7 @@ class Cube extends THREE.Object3D{
         this.position.y = size/2;
         this.position.z = z;
     
-        geometry = new THREE.BoxGeometry(size, size, size);
+        geometry = new THREE.BoxGeometry(size, size, size, 100, 100, 100);
         mesh = new THREE.Mesh(geometry, this.userData.phongMaterial);
 
         this.add(mesh);

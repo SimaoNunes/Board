@@ -2,7 +2,7 @@ class Board extends THREE.Object3D{
 
     addBoard(x, y, z) {
         'use strict';
-        geometry = new THREE.PlaneGeometry(80,80,80,80);
+        geometry = new THREE.PlaneGeometry(80,80,100,100);
         mesh = new THREE.Mesh(geometry, this.userData.phongMaterialBoard);
         mesh.position.set(x, y+4, z);
         mesh.rotation.x -= Math.PI/2;
@@ -12,19 +12,19 @@ class Board extends THREE.Object3D{
 
     addFrame(x, y, z) {
         'use strict';
-        var geometryTop = new THREE.BoxGeometry(80, 8, 5, 8, 3, 10);
+        var geometryTop = new THREE.BoxGeometry(80, 8, 5, 50, 50, 50);
         var meshTop = new THREE.Mesh(geometryTop);
         meshTop.position.set(x, y, z-42.5);
-        var geometryBottom = new THREE.BoxGeometry(80, 8, 5, 8, 3, 10);
+        var geometryBottom = new THREE.BoxGeometry(80, 8, 5, 50, 50, 50);
         var meshBottom = new THREE.Mesh(geometryBottom);
         meshBottom.position.set(x, y, z+42.5);
-        var geometryLeft = new THREE.BoxGeometry(5, 8, 90, 8, 3, 10);
+        var geometryLeft = new THREE.BoxGeometry(5, 8, 90, 50, 50, 50);
         var meshLeft = new THREE.Mesh(geometryLeft);
         meshLeft.position.set(x-42.5, y, z);
-        var geometryRight = new THREE.BoxGeometry(5, 8, 90, 8, 3, 10);
+        var geometryRight = new THREE.BoxGeometry(5, 8, 90, 50, 50, 50);
         var meshRight = new THREE.Mesh(geometryRight);
         meshRight.position.set(x+42.5, y, z);
-        var geometryPlane = new THREE.PlaneGeometry(80,80,80,80);
+        var geometryPlane = new THREE.PlaneGeometry(80,80,100,100);
         var meshPlane = new THREE.Mesh(geometryPlane);
         meshPlane.position.set(z,y-4,z);
         meshPlane.rotation.x += Math.PI/2;

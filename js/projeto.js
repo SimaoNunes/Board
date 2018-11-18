@@ -42,7 +42,7 @@ function onKeyDown(e) {
                 }
             });
             for(counter = 0; counter < 6; counter++){
-                cube.children[0].material[counter].wireframe = !cube.children[0].material[counter].wireframe;
+                cube.children[0].material.materials[counter].wireframe = !cube.children[0].material.materials[counter].wireframe;
             }
         }
         break;
