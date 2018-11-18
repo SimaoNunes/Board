@@ -18,18 +18,18 @@ function createMainScene() {
     mainScene.add(cube);
 }
 
+
 function createPauseScene(){
     'use strict';
 
     pauseScene = new THREE.Scene();
 
-    wall = new Wall(0,0,40);
+    wall = new Wall(0,0,150);
     
     pauseScene.add(wall);
     pauseScene.add(camera2);
-
-
 }
+
 
 function onKeyDown(e) {
     'use strict';
@@ -70,7 +70,22 @@ function onKeyDown(e) {
         }
         break;
     case 83: // S (pause)
-        sKey = !sKey;
+        if(!sKey){
+            camera = camera1;
+            controls.enableRotate = true;
+            controls.enableZoom = true;
+            controls.enableKeys = true;
+            scene = mainScene;
+            sKey = true;
+        }
+        else{
+            camera = camera2;
+            controls.enableRotate = false;
+            controls.enableZoom = false;
+            controls.enableKeys = false;
+            scene = pauseScene;
+            sKey = false;
+        }
         break;
     }
 }
@@ -113,14 +128,9 @@ function update() {
         lKey = false;
     }
 
-    if(sKey){
-        scene = mainScene;
+    if(sKey)
         if(ball.userData.acc != 0)
             ball.rotate(delta);
-    }
-    else{
-        scene = pauseScene;
-    }
 
     camera.lookAt(scene.position);
     controls.update();

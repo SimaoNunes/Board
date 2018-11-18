@@ -8,7 +8,7 @@ class Wall extends THREE.Object3D{
         'use strict'
         super();
 
-        var face = new texture.load("textures/pause_menu.png");
+        var face = new texture.load("textures/pause_menu_grilo.png");
 
         var basic = new THREE.MeshFaceMaterial([
             new THREE.MeshBasicMaterial({map: face, side: THREE.FrontSide}),
@@ -19,16 +19,12 @@ class Wall extends THREE.Object3D{
             new THREE.MeshBasicMaterial({map: face, side: THREE.FrontSide})
         ]);
 
-        this.userData = {
-            basicMaterial: basic,
-        }
-
         this.position.x = x;
         this.position.y = 0;
         this.position.z = z;
     
         geometry = new THREE.BoxGeometry(size, size, size);
-        mesh = new THREE.Mesh(geometry, this.userData.basicMaterial);
+        mesh = new THREE.Mesh(geometry, basic);
 
         this.add(mesh);
     }

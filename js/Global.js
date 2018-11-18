@@ -19,7 +19,7 @@ var lightCalculation = 1;
 // --------------------
 //  TEXTURES VARIABLES
 // --------------------
-var texture      = new THREE.TextureLoader();
+var texture  = new THREE.TextureLoader();
 
 
 

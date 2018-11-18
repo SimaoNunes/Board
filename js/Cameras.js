@@ -10,9 +10,16 @@ class Cameras extends THREE.Object3D{
 
     createCamera2() {
         'use strict';
-        camera2 = new THREE.PerspectiveCamera(90,window.innerWidth / window.innerHeight,1,500);
-        camera2.position.x = 60;
-        camera2.position.y = 60;
+        camera2 = new THREE.OrthographicCamera(
+            window.innerWidth / - 10,
+            window.innerWidth/ 10,
+            (window.innerHeight / 10),
+            (window.innerHeight / - 10),
+            -1000,
+            1000
+        );
+        camera2.position.x = 0;
+        camera2.position.y = 0;
         camera2.position.z = 60;
     }
 
@@ -27,8 +34,8 @@ class Cameras extends THREE.Object3D{
         
         camera1.isPerspectiveCamera = true;
         controls = new THREE.OrbitControls(camera1);
-        camera2.isPerspectiveCamera = true;
-        controls = new THREE.OrbitControls(camera2);
+        controls.enableDamping = true;
+        controls.rotateSpeed = 0.3;
         controls.update();
     }
 }
