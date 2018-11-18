@@ -10,8 +10,9 @@ function createMainScene() {
     cube    = new Cube(0,0,15);
     cameras = new Cameras();
     lights   = new Lights(); 
+    camera  = camera1;
 
-    mainScene.add(camera1);
+    mainScene.add(camera);
     mainScene.add(board);
     mainScene.add(ball);
     mainScene.add(cube);
@@ -26,6 +27,7 @@ function createPauseScene(){
     
     pauseScene.add(wall);
     pauseScene.add(camera2);
+
 
 }
 
