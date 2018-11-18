@@ -35,7 +35,7 @@ function onKeyDown(e) {
     'use strict';
     switch (e.keyCode) {
     case 87: // W
-        if(sKey){
+        if(!sKey){
             scene.traverse(function (node) {
                 if (node instanceof THREE.Mesh) {
                     node.material.wireframe = !node.material.wireframe;
@@ -47,22 +47,22 @@ function onKeyDown(e) {
         }
         break;
     case 68: // D (change directionalLight intensity)
-        if(sKey){
+        if(!sKey){
             dKey = true;
         }
         break;
     case 80: // P (change pointLight intensity)
-        if(sKey){
+        if(!sKey){
             pKey = true;
         }
         break;
     case 76: // L (toogle lightCalculation)
-        if(sKey){
+        if(!sKey){
             lKey = true;
         }
         break;
     case 66: // B (toogle ball movement)
-        if(sKey){
+        if(!sKey){
             if(ball.userData.acc == 0)
                 ball.userData.acc = 0.07;
             else
@@ -70,13 +70,13 @@ function onKeyDown(e) {
         }
         break;
     case 83: // S (pause)
-        if(!sKey){
+        if(sKey){
             camera = camera1;
             controls.enableRotate = true;
             controls.enableZoom = true;
             controls.enableKeys = true;
             scene = mainScene;
-            sKey = true;
+            sKey = false;
         }
         else{
             camera = camera2;
@@ -84,9 +84,15 @@ function onKeyDown(e) {
             controls.enableZoom = false;
             controls.enableKeys = false;
             scene = pauseScene;
-            sKey = false;
+            sKey = true;
         }
         break;
+    case 82: // R (refresh)
+        if(sKey){
+            createMainScene();
+            scene = mainScene;
+            sKey = false;
+        }
     }
 }
 
@@ -128,7 +134,7 @@ function update() {
         lKey = false;
     }
 
-    if(sKey)
+    if(!sKey)
         if(ball.userData.acc != 0)
             ball.rotate(delta);
 

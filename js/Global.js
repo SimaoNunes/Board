@@ -12,7 +12,7 @@ var lKey = false;   // variaveis que serao ativadas quando pressionadas as tecla
 var wKey = 0;
 var dKey = false;
 var pKey = false;
-var sKey = true;
+var sKey = false;
 
 var lightCalculation = 1;
 

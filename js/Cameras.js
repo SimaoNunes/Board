@@ -34,8 +34,7 @@ class Cameras extends THREE.Object3D{
         
         camera1.isPerspectiveCamera = true;
         controls = new THREE.OrbitControls(camera1);
-        controls.enableDamping = true;
-        controls.rotateSpeed = 0.3;
+        controls.rotateSpeed = 0.7;
         controls.update();
     }
 }
