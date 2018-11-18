@@ -1,10 +1,9 @@
 /*Cena Interativa com Luz Pontual, Mensagens e Texturas*/
 
-
-function createScene() {
+function createMainScene() {
     'use strict';
 
-    scene = new THREE.Scene();
+    mainScene = new THREE.Scene();
 
     board   = new Board(0,0,0);
     ball    = new Ball(-25,0,14,0xffffff);
@@ -13,12 +12,24 @@ function createScene() {
     lights   = new Lights(); 
     camera  = camera1;
 
-    scene.add(camera);
-    scene.add(board);
-    scene.add(ball);
-    scene.add(cube);
+    mainScene.add(camera);
+    mainScene.add(board);
+    mainScene.add(ball);
+    mainScene.add(cube);
 }
 
+function createPauseScene(){
+    'use strict';
+
+    pauseScene = new THREE.Scene();
+
+    wall = new Wall(0,0,40);
+    
+    pauseScene.add(wall);
+    pauseScene.add(camera2);
+
+
+}
 
 function onKeyDown(e) {
     'use strict';
@@ -103,8 +114,12 @@ function update() {
     }
 
     if(sKey){
+        scene = mainScene;
         if(ball.userData.acc != 0)
             ball.rotate(delta);
+    }
+    else{
+        scene = pauseScene;
     }
 
     camera.lookAt(scene.position);
@@ -141,7 +156,10 @@ function init() {
     
     clock = new THREE.Clock();
 
-    createScene();
+    createMainScene();
+    createPauseScene();
+
+    scene = mainScene;
 
     render();
 

@@ -5,7 +5,7 @@ class Lights extends THREE.Object3D{
         directionalLight.position.x = 50;
         directionalLight.position.y = 100;
         directionalLight.position.z = 50;
-        scene.add(directionalLight);
+        mainScene.add(directionalLight);
     }
 
     addPointLight(){
@@ -13,7 +13,7 @@ class Lights extends THREE.Object3D{
         pointLight.position.x = 0;
         pointLight.position.y = 50;
         pointLight.position.z = 0;
-        scene.add(pointLight);
+        mainScene.add(pointLight);
     }
 
     constructor(x,y,z){
