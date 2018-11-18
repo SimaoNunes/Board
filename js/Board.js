@@ -56,7 +56,7 @@ class Board extends THREE.Object3D{
     constructor(x, y, z){
         super();
 
-        var basicBoard = new THREE.MeshBasicMaterial({map: new texture.load("textures/casas.png"), color: 0xffffff, specular: 0x101010});
+        var basicBoard = new THREE.MeshBasicMaterial({map: new texture.load("textures/casas.png"), color: 0xffffff});
         var phongBoard = new THREE.MeshPhongMaterial({map: new texture.load("textures/casas.png"), color: 0xffffff, specular: 0x101010});
         var basicFrame = new THREE.MeshBasicMaterial({color: 0x2d2c29});
         var phongFrame = new THREE.MeshPhongMaterial({color: 0x2d2c29});

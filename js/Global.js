@@ -1,10 +1,10 @@
 // ------------------
 //  GLOBAL VARIABLES
 // ------------------
-var scene, renderer, clock, delta; // variaveis gerais relativas a animacao
-var cameras, camera, camera1, controls;  // diferentes tipos de cameras
+var scene, mainScene, pauseScene, renderer, clock, delta; // variaveis gerais relativas a animacao
+var cameras, camera, camera1, camera2, controls;  // diferentes tipos de cameras
 var geometry, material, mesh;
-var board, ball, cube; // diferentes objetos a desenhar
+var board, ball, cube, wall; // diferentes objetos a desenhar
 var lights, currentLight, directionalLight, pointLight;  // diferentes tipos de luz
 var axisY = new THREE.Vector3(0,1,0);
 var counter;
