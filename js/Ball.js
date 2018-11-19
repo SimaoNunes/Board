@@ -14,13 +14,17 @@ class Ball extends THREE.Object3D{
         if(vccTest <= 0)
             this.userData.acc = 0;
         this.position.applyAxisAngle(axisY,this.userData.vcc);
-        this.userData.rotationDirection.applyAxisAngle(axisY,this.userData.vcc);
-        this.children[0].rotateOnAxis(this.userData.rotationDirection,this.userData.vcc);
+        this.rotation.y += this.userData.vcc;
+        this.children[0].rotation.x += this.userData.vcc;
     }
 
     constructor(x,z,diameter){
         'use strict'
         super();
+
+        this.position.x = x;
+        this.position.y = diameter/2;
+        this.position.z = z;
 
         var yellow = new texture.load("textures/ball_one.jpg");
 
@@ -33,13 +37,8 @@ class Ball extends THREE.Object3D{
             moving: false,
             vcc: 0,
             vccMax: 0.07,
-            acc: 0,
-            rotationDirection: new THREE.Vector3(1,0,0)
+            acc: 0
         }
-
-        this.position.x = x;
-        this.position.y = diameter/2;
-        this.position.z = z;
     
         geometry = new THREE.SphereGeometry(diameter/2, 100, 100);
         mesh = new THREE.Mesh(geometry, this.userData.phongMaterial);
