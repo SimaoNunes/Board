@@ -18,6 +18,7 @@ class Cube extends THREE.Object3D{
         var red = new texture.load("textures/red.png");
         var orange = new texture.load("textures/orange.png");
         var bump = new texture.load("textures/bump.png");
+        
         var basic = new THREE.MeshFaceMaterial([
             new THREE.MeshBasicMaterial({map: yellow, side: THREE.FrontSide}),
             new THREE.MeshBasicMaterial({map: white, side: THREE.FrontSide}),
@@ -44,7 +45,7 @@ class Cube extends THREE.Object3D{
         this.position.y = size/2;
         this.position.z = z;
     
-        geometry = new THREE.BoxGeometry(size, size, size, 100, 100, 100);
+        geometry = new THREE.BoxGeometry(size, size, size, 10, 10, 10);
         mesh = new THREE.Mesh(geometry, this.userData.phongMaterial);
 
         this.add(mesh);

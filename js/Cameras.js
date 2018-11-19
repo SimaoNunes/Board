@@ -25,6 +25,7 @@ class Cameras extends THREE.Object3D{
 
     
     constructor(){
+        
         super();
     
         'use strict';

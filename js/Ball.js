@@ -3,9 +3,11 @@ class Ball extends THREE.Object3D{
     changeToBasic(){
         this.children[0].material  = this.userData.basicMaterial;
     }
+    
     changeToPhong(){
         this.children[0].material  = this.userData.phongMaterial;       
     }
+
     rotate(delta){
         var vccTest = this.userData.vcc + this.userData.acc * delta;
         if(vccTest <= this.userData.vccMax){
