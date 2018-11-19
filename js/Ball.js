@@ -22,9 +22,10 @@ class Ball extends THREE.Object3D{
         'use strict'
         super();
 
-        var yellow1 = new texture.load("textures/ball_one.jpg");
-        var basic = new THREE.MeshBasicMaterial({map: yellow1, side: THREE.FrontSide});
-        var phong = new THREE.MeshPhongMaterial({map: yellow1, side: THREE.FrontSide, specular: 0xffffff, shininess: 110});
+        var yellow = new texture.load("textures/ball_one.jpg");
+
+        var basic = new THREE.MeshBasicMaterial({map: yellow, side: THREE.FrontSide});
+        var phong = new THREE.MeshPhongMaterial({map: yellow, side: THREE.FrontSide, specular: 0xffffff, shininess: 110});
 
         this.userData = {
             basicMaterial: basic,
