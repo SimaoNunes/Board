@@ -32,7 +32,7 @@ class Ball extends THREE.Object3D{
             phongMaterial: phong,
             moving: false,
             vcc: 0,
-            vccMax: 0.07,
+            vccMax: 7.07,
             acc: 0,
             rotationDirection: new THREE.Vector3(1,0,0)
         }
