@@ -60,14 +60,24 @@ function onKeyDown(e) {
     case 83: // S (pause)
         if(sKey){
             camera = camera1;
+            camera = camera1;
             controls.enableRotate = true;
             controls.enableZoom = true;
             controls.enableKeys = true;
+            cc2c.enableRotate = false;
+            cc2c.enableZoom = false;
+            cc2c.enableKeys = false;
             scene = mainScene;
             sKey = false;
         }
         else{
-            // controls.enableRotate = false;x
+            camera = camera2;
+            cc2c.enableRotate = true;
+            cc2c.enableZoom = true;
+            cc2c.enableKeys = true;
+            controls.enableRotate = false;
+            controls.enableZoom = false;
+            controls.enableKeys = false;
             scene = pauseScene;
             sKey = true;
         }
@@ -87,10 +97,10 @@ function update() {
     delta = clock.getDelta();
 
     if(dKey){
-        if( directionalLight.intensity == 1){
-            directionalLight.intensity = 0;
+        if( spotLight.intensity == 1){
+            spotLight.intensity = 0;
         }else{
-            directionalLight.intensity = 1;
+            spotLight.intensity = 1;
         }
         dKey = false;
     }
@@ -125,6 +135,7 @@ function update() {
 
     camera.lookAt(scene.position);
     controls.update();
+    cc2c.update();
 
 }
 

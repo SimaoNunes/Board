@@ -42,7 +42,7 @@ class Ball extends THREE.Object3D{
             acc: 0
         }
     
-        geometry = new THREE.SphereGeometry(diameter/2, 100, 100);
+        geometry = new THREE.SphereGeometry(diameter/2, 50, 50);
         mesh = new THREE.Mesh(geometry, this.userData.phongMaterial);
 
         this.add(mesh);

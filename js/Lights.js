@@ -1,15 +1,17 @@
 class Lights extends THREE.Object3D{
     
-    addDirectionalLight(){
-        directionalLight = new THREE.DirectionalLight(0xffffff, 1); // soft white light
-        directionalLight.position.x = 50;
-        directionalLight.position.y = 100;
-        directionalLight.position.z = 50;
-        mainScene.add(directionalLight);
+    addSpotLight(){
+        spotLight = new THREE.SpotLight(0xffffff, 1); // soft white light
+        spotLight.castShadow = true;
+        spotLight.position.x = 50;
+        spotLight.position.y = 100;
+        spotLight.position.z = 50;
+        mainScene.add(spotLight);
     }
 
     addPointLight(){
         pointLight = new THREE.PointLight(0xffffff, 0, 100, 2); // soft white light
+        pointLight.castShadow = true;
         pointLight.position.x = 0;
         pointLight.position.y = 50;
         pointLight.position.z = 0;
@@ -21,9 +23,9 @@ class Lights extends THREE.Object3D{
     
         'use strict';
 
-        this.addDirectionalLight();
+        this.addSpotLight();
         this.addPointLight();
 
-        currentLight = directionalLight;
+        currentLight = spotLight;
     }
 }
