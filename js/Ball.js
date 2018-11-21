@@ -36,7 +36,7 @@ class Ball extends THREE.Object3D{
             phongMaterial: phong,
             moving: false,
             vcc: 0,
-            vccMax: 0.07,
+            vccMax: 0.02,
             acc: 0
         }
     
