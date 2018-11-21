@@ -12,6 +12,7 @@ class Board extends THREE.Object3D{
 
     addFrame(x, y, z) {
         'use strict';
+
         var geometryTop = new THREE.BoxGeometry(80, 8, 5, 20, 20, 20);
         var meshTop = new THREE.Mesh(geometryTop);
         meshTop.position.set(x, y, z-42.5);
@@ -64,6 +65,7 @@ class Board extends THREE.Object3D{
     }
 
     constructor(x, y, z){
+        'use strict';
         
         super();
 
@@ -83,8 +85,6 @@ class Board extends THREE.Object3D{
         this.position.y = y-4;
         this.position.z = z;
         
-        'use strict';
-
         this.addBoard(0,0,0);
         this.addFrame(0,0,0);
         }

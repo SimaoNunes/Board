@@ -1,6 +1,7 @@
 // ------------------
 //  GLOBAL VARIABLES
 // ------------------
+
 var scene, mainScene, pauseScene, renderer, clock, delta; // variaveis gerais relativas a animacao
 
 var cameras, camera, camera1, camera2, controls, cc2c;  // diferentes tipos de cameras
@@ -26,6 +27,7 @@ var lightCalculation = 1;
 // --------------------
 //  TEXTURES VARIABLES
 // --------------------
+
 var texture  = new THREE.TextureLoader();
 
 

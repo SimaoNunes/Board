@@ -10,11 +10,13 @@ class Ball extends THREE.Object3D{
 
     rotate(delta){
         var vccTest = this.userData.vcc + this.userData.acc * delta;
-        if(vccTest <= this.userData.vccMax){
+
+        if(vccTest <= this.userData.vccMax)
             this.userData.vcc = vccTest;
-        }
+        
         if(vccTest <= 0)
             this.userData.acc = 0;
+
         this.position.applyAxisAngle(axisY,this.userData.vcc);
         this.rotation.y += this.userData.vcc;
         this.children[0].rotation.x += this.userData.vcc;
@@ -22,6 +24,7 @@ class Ball extends THREE.Object3D{
 
     constructor(x,z,diameter){
         'use strict'
+        
         super();
 
         this.position.x = x;
@@ -38,7 +41,7 @@ class Ball extends THREE.Object3D{
             phongMaterial: phong,
             moving: false,
             vcc: 0,
-            vccMax: 0.02,
+            vccMax: 0.05,
             acc: 0
         }
     

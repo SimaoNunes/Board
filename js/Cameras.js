@@ -18,21 +18,22 @@ class Cameras extends THREE.Object3D{
 
     
     constructor(){
+        'use strict';
         
         super();
-    
-        'use strict';
 
         this.createCamera1();
         this.createCamera2();
         
         camera1.isPerspectiveCamera = true;
         camera2.isPerspectiveCamera = true;
+
         controls = new THREE.OrbitControls(camera1);
-        cc2c = new THREE.OrbitControls(camera2);
         controls.rotateSpeed =0.7;
-        cc2c.rotateSpeed = 0.7;
         controls.update();
+
+        cc2c = new THREE.OrbitControls(camera2);
+        cc2c.rotateSpeed = 0.7;
         cc2c.update();
         cc2c.enableRotate = false;
         cc2c.enableZoom = false;

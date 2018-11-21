@@ -9,6 +9,7 @@ class Cube extends THREE.Object3D{
 
     constructor(x,z,size){
         'use strict'
+        
         super();
 
         var yellow = new texture.load("textures/yellow.png");

@@ -19,10 +19,10 @@ class Lights extends THREE.Object3D{
     }
 
     constructor(x,y,z){
-        super();
-    
         'use strict';
 
+        super();
+    
         this.addSpotLight();
         this.addPointLight();
 
