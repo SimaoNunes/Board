@@ -24,7 +24,7 @@ function createPauseScene(){
 
     pauseScene = new THREE.Scene();
 
-    wall = new Wall(0,0,150);
+    wall = new Wall(0,0,40);
     
     pauseScene.add(wall);
     pauseScene.add(camera2);
@@ -34,18 +34,6 @@ function createPauseScene(){
 function onKeyDown(e) {
     'use strict';
     switch (e.keyCode) {
-    case 87: // W
-        if(!sKey){
-            scene.traverse(function (node) {
-                if (node instanceof THREE.Mesh) {
-                    node.material.wireframe = !node.material.wireframe;
-                }
-            });
-            for(counter = 0; counter < 6; counter++){
-                cube.children[0].material.materials[counter].wireframe = !cube.children[0].material.materials[counter].wireframe;
-            }
-        }
-        break;
     case 68: // D (change directionalLight intensity)
         if(!sKey){
             dKey = true;
@@ -79,10 +67,7 @@ function onKeyDown(e) {
             sKey = false;
         }
         else{
-            camera = camera2;
-            controls.enableRotate = false;
-            controls.enableZoom = false;
-            controls.enableKeys = false;
+            // controls.enableRotate = false;x
             scene = pauseScene;
             sKey = true;
         }

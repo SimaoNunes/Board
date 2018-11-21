@@ -28,7 +28,7 @@ class Board extends THREE.Object3D{
         var meshRight = new THREE.Mesh(geometryRight);
         meshRight.position.set(x+42.5, y, z);
 
-        var geometryPlane = new THREE.PlaneGeometry(80,80,100,100);
+        var geometryPlane = new THREE.PlaneGeometry(80,80,10,10);
         var meshPlane = new THREE.Mesh(geometryPlane);
         meshPlane.position.set(z,y-4,z);
 
@@ -63,6 +63,7 @@ class Board extends THREE.Object3D{
     }
 
     constructor(x, y, z){
+        
         super();
 
         var basicBoard = new THREE.MeshBasicMaterial({map: new texture.load("textures/casas.png"), color: 0xffffff});
