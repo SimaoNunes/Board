@@ -1,6 +1,6 @@
 # Board
 
-Source code of [this](http://web.tecnico.ulisboa.pt/~ist186512/projects/office/) university project from the Computer Graphics class. 
+Source code of [this](http://web.tecnico.ulisboa.pt/~ist186512/projects/board/) university project from the Computer Graphics class. 
 
 ## Start the animation
 
